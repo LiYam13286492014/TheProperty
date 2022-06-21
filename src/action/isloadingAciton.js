@@ -1,0 +1,1 @@
+export const loadingAction = ()=>({type:'chang_it'})

@@ -1,0 +1,1 @@
+export const istrueAction =()=>({type:'chang_collapsed'})

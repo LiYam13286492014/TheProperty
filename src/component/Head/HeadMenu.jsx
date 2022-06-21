@@ -1,6 +1,9 @@
 
 import React, { useState } from 'react';
-import { Layout, Menu, Dropdown } from 'antd';
+import { Layout, Menu, Dropdown, Avatar, Image, Upload } from 'antd';
+import store from '../../store/index';
+import { connect } from 'react-redux';
+import { istrueAction } from '../../action/istrueAciton';
 import './HeadMenu.css'
 import {
     MenuUnfoldOutlined,
@@ -8,12 +11,37 @@ import {
     DownOutlined
 
 } from '@ant-design/icons';
+import { useNavigate } from 'react-router-dom';
 const { Header } = Layout
-export default function HeadMenu() {
+const HeadMenu=(props)=> {
+
+    const navigate = useNavigate()
     const [collapsed, setCollapsed] = useState(false);
+    const { username } = JSON.parse(localStorage.getItem('aa'))
+
+
+    const Toleft = (e) => {
+        if (e.key === '1') {
+            localStorage.removeItem('aa')
+            navigate('/login', { state: { replace: true } })
+        }
+
+    }
     const menu = (
-        <Menu>
-            <Menu.Item>退出</Menu.Item>
+        <Menu
+            onClick={Toleft}
+            items={
+                [
+                    {
+                        key: "1",
+                        label: (
+                            <span >退出</span>
+                        ),
+
+                    }
+                ]
+            }>
+
         </Menu>
     )
 
@@ -24,22 +52,38 @@ export default function HeadMenu() {
                 padding: 0,
             }}
         >
-            {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+            {React.createElement(props.isTrue ? MenuUnfoldOutlined : MenuFoldOutlined, {
                 className: 'trigger',
-                onClick: () => setCollapsed(!collapsed),
+                onClick: () => {
+                    store.dispatch(istrueAction())
+                },
             })}
 
             <div style={{ float: 'right', marginRight: '16px' }}>
-                <span>
-                    欢迎xxxx回来
-                </span>
-                <Dropdown overlay={menu}>
-                  
-                            
-                            <DownOutlined />
-                
-                </Dropdown>
+
+                <div >
+
+
+                    <Avatar style={{marginRight:'2px'}} onClick={() => console.log(1)} src={<Image preview={false} src="https://img2.baidu.com/it/u=1003141941,2906255729&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=725" style={{ width: 32 }} />} />
+
+                    <span>
+                        欢迎<span style={{ fontSize: '16px', color: "burlywood" }}>{username}</span>回来
+                    </span>
+
+
+                    <Dropdown overlay={menu}>
+
+
+                        <DownOutlined />
+
+                    </Dropdown>
+                </div>
             </div>
         </Header>
     )
 }
+
+const dd =(state)=>{
+    return state.collapsedReducer
+}
+ export default connect(dd)(HeadMenu)

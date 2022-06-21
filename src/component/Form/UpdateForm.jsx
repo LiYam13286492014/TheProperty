@@ -1,13 +1,15 @@
 import React, { forwardRef, useEffect, useState } from 'react'
-import { Form, Input} from 'antd';
+import { Form, Input, Select } from 'antd';
 
-const UpdateForm=forwardRef((props,refs)=> {
 
-    const[valueData,setValueData] =useState()
+const UpdateForm = forwardRef((props, refs) => {
+
+    const [valueData, setValueData] = useState()
     const [form] = Form.useForm();
-   
+    const { Option } = Select
 
-  
+
+
 
     return (
 
@@ -30,15 +32,25 @@ const UpdateForm=forwardRef((props,refs)=> {
                 label="物品名称"
                 name="show_name"
                 rules={[{ required: true, message: 'Please input the show_name!' }]}>
-                <Input />
+
+                <Select>
+                    {
+                        props.shows_op.map(item => {
+                            return <Option key={item.id} value={item.value}>{item.show_name}</Option>
+                        })
+                    }
+
+                </Select>
             </Form.Item>
 
-            <Form.Item
-                label="时间"
-                name="create_time"
-                rules={[{ required: true }]}>
-                <Input  />
-            </Form.Item>
+            {
+                props.time === 1 && <Form.Item
+                    label="时间"
+                    name="create_time"
+                    rules={[{ required: true }]}>
+                    <Input />
+                </Form.Item>
+            }
 
             <Form.Item
                 label="数量"
@@ -52,4 +64,4 @@ const UpdateForm=forwardRef((props,refs)=> {
 })
 
 
-export default  UpdateForm
+export default UpdateForm

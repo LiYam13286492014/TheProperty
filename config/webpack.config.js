@@ -120,6 +120,7 @@ module.exports = function (webpackEnv) {
         loader: require.resolve('css-loader'),
         options: cssOptions,
       },
+
       {
         // Options for PostCSS as we reference these options twice
         // Adds vendor prefixing based on your specified browser support in
@@ -343,7 +344,7 @@ module.exports = function (webpackEnv) {
         shouldUseSourceMap && {
           enforce: 'pre',
           exclude: /@babel(?:\/|\\{1,2})runtime/,
-          test: /\.(js|mjs|jsx|ts|tsx|css)$/,
+          test: /\.(js|mjs|jsx|ts|tsx)$/,
           loader: require.resolve('source-map-loader'),
         },
         {
@@ -543,6 +544,16 @@ module.exports = function (webpackEnv) {
                 'sass-loader'
               ),
             },
+            // {
+            //   test: /\.less$/,
+            //   use : getStyleLoaders(
+            //     {
+
+            //     },
+            //     'less-loader'
+            //   )
+
+            // },
             // "file" loader makes sure those assets get served by WebpackDevServer.
             // When you `import` an asset, you get its (virtual) filename.
             // In production, they would get copied to the `build` folder.
