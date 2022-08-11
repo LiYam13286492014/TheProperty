@@ -1,16 +1,16 @@
-const { createProxyMiddleware } = require('http-proxy-middleware');
+// const { createProxyMiddleware } = require('http-proxy-middleware');
 
-module.exports = function(app) {
-  app.use(
-    // ['/sider','/detail','/category','/user'],
-    ['/api'],
+// module.exports = function(app) {
+//   app.use(
+//     // ['/sider','/detail','/category','/user'],
     
-    createProxyMiddleware({
-      target: 'http://localhost:3005',
-      changeOrigin: true,
-      pathRewrite:{
-        '^/api':''
-    }
-    })
-  );
-};
+    
+//     createProxyMiddleware('/api',{
+//       target: 'http://localhost:3006',
+//       changeOrigin: true,
+//       pathRewrite:{
+//         '^/api':''
+//     }
+//     })
+//   );
+// };

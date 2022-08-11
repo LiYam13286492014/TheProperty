@@ -130,6 +130,7 @@ export default function Category() {
 
         const toggleEdit = () => {
             setEditing(!editing);
+            console.log(record);
             form.setFieldsValue({
                 [dataIndex]: record[dataIndex],
             });
@@ -138,8 +139,10 @@ export default function Category() {
         const save = async () => {
             try {
                 const values = await form.validateFields();
-                toggleEdit();
-                handleSave({ ...record, ...values });
+                console.log(values)
+                 toggleEdit();
+                console.log(record);
+            record.title !== values.title &&    handleSave({ ...record, ...values });
             } catch (errInfo) {
                 console.log('Save failed:', errInfo);
             }

@@ -137,9 +137,9 @@ export default function Pushview() {
 
   return (
     <div>
-      <Button type='primary' onClick={()=>{setVisibleState(true)
-        setCurrentOk(1)}}>新增库存</Button>
-      <Button type='primary' onClick={()=>{setVisibleState(true)
+      <Button size='small' type='primary' onClick={()=>{setVisibleState(true)
+        setCurrentOk(1)}}>增删库存</Button>
+      <Button size='small' type='primary' onClick={()=>{setVisibleState(true)
         setCurrentOk(2)}}>修改库存</Button>
       <Modal visible={visibleState} onOk={()=>handleOk(currentOk)} onCancel={()=>{setVisibleState(false)}} >
         <PushForm  typeShow={typeShow} ref={pushRef} />

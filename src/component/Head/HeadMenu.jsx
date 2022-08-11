@@ -18,6 +18,7 @@ const HeadMenu=(props)=> {
     const navigate = useNavigate()
     const [collapsed, setCollapsed] = useState(false);
     const { username } = JSON.parse(localStorage.getItem('aa'))
+    // const username  = localStorage.getItem('username')
 
 
     const Toleft = (e) => {
@@ -64,7 +65,12 @@ const HeadMenu=(props)=> {
                 <div >
 
 
-                    <Avatar style={{marginRight:'2px'}} onClick={() => console.log(1)} src={<Image preview={false} src="https://img2.baidu.com/it/u=1003141941,2906255729&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=725" style={{ width: 32 }} />} />
+                    <Avatar style={{marginRight:'2px'}} 
+                    onClick={() => console.log(1)} 
+                    src={process.env.SERVER_PORT_IMG + localStorage.getItem('avatar')} 
+                    
+                   /*  src={<Image preview={false} 
+                    src={'http://localhost:9000/manage/upload/' + localStorage.getItem('x-token')} style={{ width: 32 }} />} */ />
 
                     <span>
                         欢迎<span style={{ fontSize: '16px', color: "burlywood" }}>{username}</span>回来

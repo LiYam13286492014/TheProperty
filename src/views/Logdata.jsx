@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Timeline, PageHeader, Divider, Button } from 'antd';
-import axios from 'axios';
+// import axios from 'axios';
+import log from  '../network/log'
 
 
 
@@ -17,7 +18,7 @@ export default function LogData() {
     //   console.log([...res[0].data,...res[1].data]);
 
     // })
-    axios.get(`http://localhost:3006/log?_sort=id&_order=desc&_limit=${moreData}`).then(res => {
+    log.get(`/log?_sort=id&_order=desc&_limit=${moreData}`).then(res => {
       setLogoData(res.data)
     })
 
@@ -43,7 +44,8 @@ export default function LogData() {
       <Timeline mode="alternate" >
         {
           logData.length !== 0 && logData.map(item => {
-            return <Timeline.Item key={item.id}>{item.create_time} {username}{item.type}{item.show_name} 库存:{item.count <= 0 ? item.count : `+${item.count}`} 当前剩余：{item.leave_count}</Timeline.Item>
+            return <Timeline.Item key={item.id}>
+              {item.create_time} {username}{item.type}{item.show_name} 库存变动:{item.count <= 0 ? item.count:`+${item.count}`} 当前剩余:{item.leave_count}</Timeline.Item>
           })
         }
 

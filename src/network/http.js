@@ -3,6 +3,9 @@ import store from '../store/index'
 
 
 
+
+
+
 axios.defaults.baseURL="http://localhost:3005" //存在会与代理冲突,优先
 axios.interceptors.request.use(request =>{
     store.dispatch(

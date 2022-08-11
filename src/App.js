@@ -14,11 +14,18 @@ import Login from './views/login/login';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css'
 import { connect } from 'react-redux';
+import Register from './views/login/register';
+
+
+
+
+
 
 const { Content } = Layout;
 
 
 function App(props) {
+
   const routes = list()
 
   const element = useRoutes(routes)
@@ -31,14 +38,16 @@ function App(props) {
   return (
 
     <div className="App">
+       
       <Routes>
       <Route path='/login' element={<Login />} ></Route>
+      <Route path='/register' element={<Register/>} ></Route>
         <Route path='/*' element={!localStorage.getItem('aa') ? <Navigate to='/login' /> :
           <Spin spinning={props.isLoading}>
             <Layout className='aa'>
               <SiderMenu />
               <Layout className="site-layout">
-                <HeadMenu />
+                <HeadMenu key={props.keyValue} />
                 <Content
 
                   className="site-layout-background"
@@ -85,9 +94,14 @@ function App(props) {
   );
 }
 
-const mapStateToProps=({loadingReducer})=>{
-   return loadingReducer
+// const mapStateToProps=({loadingReducer,keyReducer})=>{
+//    return loadingReducer
+// }
+const mapStateToProps=({loadingReducer,keyReducer})=>{
+  console.log({...loadingReducer,...keyReducer});
+  return {...loadingReducer,...keyReducer}
 }
+
 
 
 

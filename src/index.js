@@ -9,7 +9,7 @@ import reportWebVitals from './reportWebVitals';
 
 
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter >
     < Provider store={store} >
 
       <App />

@@ -67,11 +67,13 @@
     "webpack-dev-server": "^4.6.0",
     "webpack-manifest-plugin": "^4.0.2",
     "workbox-webpack-plugin": "^6.4.1"
+    
   },
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "serve": "pm2 start npm  --name cms-manage -- run start"
   },
   "eslintConfig": {
     "extends": [
@@ -148,7 +150,10 @@
     ]
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "less": "^4.1.2",
     "less-loader": "^11.0.0"
   }
+  
+
 }
