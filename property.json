@@ -1,0 +1,196 @@
+{
+  "sider": [
+    {
+      "id": 1,
+      "key": "/home",
+      "icon": "HomeFilled",
+      "label": "首页",
+      "permission": 1
+    },
+    {
+      "id": 2,
+      "key": "/pushin",
+      "icon": "EditOutlined",
+      "label": "录入",
+      "permission": 1
+    },
+    {
+      "id": 3,
+      "key": "/log",
+      "icon": "SelectOutlined",
+      "label": "日志",
+      "permission": 1
+    },
+    {
+      "id": 4,
+      "key": "/user",
+      "icon": "UserOutlined",
+      "label": "用户",
+      "permission": 1
+    },
+    {
+      "id": 5,
+      "key": "/category",
+      "icon": "ApartmentOutlined",
+      "label": "种类",
+      "permission": 1
+    },
+    {
+      "id": 6,
+      "key": "/rolerights",
+      "icon": "DeploymentUnitOutlined",
+      "label": "角色权限分配",
+      "permission": 1
+    },
+    {
+      "id": 7,
+      "key": "/change",
+      "icon": "DiffOutlined",
+      "label": "修改资料",
+      "permission": 1
+    }
+  ],
+  "detail": [
+    {
+      "id": 1,
+      "show_name": "商品3",
+      "value": "商品1",
+      "create_time": "2022-01-10",
+      "sit": "28",
+      "user_name": "ll",
+      "count": 2
+    }
+  ],
+  "roles": [
+    {
+      "id": 1,
+      "rolename": "管理员",
+      "rights": [
+        "/home",
+        "/user",
+        "/category",
+        "/pushin",
+        "/log",
+        "/rolerights",
+        "/change"
+      ]
+    },
+    {
+      "id": 2,
+      "rolename": "子管理员",
+      "rights": [
+        "/home",
+        "/pushin",
+        "/log",
+        "/change"
+      ]
+    }
+  ],
+  "user": [
+    {
+      "id": 1,
+      "username": "admin3",
+      "password": "12345",
+      "state": true,
+      "rolesId": 1
+    },
+    {
+      "id": 2,
+      "username": "wwl4",
+      "password": "123",
+      "state": true,
+      "rolesId": 1
+    },
+    {
+      "id": 3,
+      "username": "cc",
+      "password": 123,
+      "state": true,
+      "rolesId": 2
+    },
+    {
+      "rolesId": 2,
+      "username": "tt",
+      "password": "123",
+      "state": true,
+      "id": 4
+    }
+  ],
+  "category": [
+    {
+      "title": "cc3",
+      "value": "cc3",
+      "id": 1
+    },
+    {
+      "title": "cc 3 ",
+      "value": "cc 3",
+      "id": 2
+    },
+    {
+      "title": "cc 3 ",
+      "value": "cc 3",
+      "id": 3
+    },
+    {
+      "title": "cc 3 ",
+      "value": "cc 3",
+      "id": 4
+    },
+    {
+      "title": "cc 3 ",
+      "value": "cc 3",
+      "id": 5
+    }
+  ],
+  "storehouse": [
+    {
+      "id": 1,
+      "title": "商品1",
+      "count": 53,
+      "la_in_time": "2022-06-16",
+      "la_out_time": "2022-06-16",
+      "la_change": "2022-08-10-->5"
+    },
+    {
+      "id": 2,
+      "title": "商品2",
+      "count": 43,
+      "la_in_time": "2022-06-15",
+      "la_out_time": "2022-02-04",
+      "la_change": "2022-08-10-->1"
+    },
+    {
+      "title": "商品3",
+      "count": 11,
+      "la_in_time": "2022-06-15",
+      "la_out_time": "2022-06-15",
+      "la_change": "2022-08-09-->0",
+      "id": 3
+    },
+    {
+      "title": "商品4",
+      "count": 17,
+      "la_in_time": "2022-08-05",
+      "la_out_time": "2022-08-05",
+      "la_change": "2022-08-10-->1",
+      "id": 4
+    },
+    {
+      "title": "商品5",
+      "count": 15,
+      "la_in_time": "2022-06-15",
+      "la_out_time": "2022-06-16",
+      "la_change": "2022-08-10-->2",
+      "id": 5
+    },
+    {
+      "title": "商品6",
+      "count": 22,
+      "la_in_time": "2022-06-15",
+      "la_out_time": 0,
+      "la_change": "",
+      "id": 6
+    }
+  ]
+}

@@ -70,10 +70,10 @@
     
   },
   "scripts": {
-    "start": "node scripts/start.js",
+    "start": " node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js",
-    "serve": "pm2 start npm  --name cms-manage -- run start"
+    "test": "node scripts/test.js"
+    
   },
   "eslintConfig": {
     "extends": [
